@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a design consultation — Umbrage Studio</title>
+  <meta name="description" content="Book your $200 design consultation. Credited in full toward your build.">
+  <link rel="icon" type="image/png" href="assets/ds/logo-ginkgo.png">
+  <link rel="preload" href="assets/fonts/Kollektif.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@0,500;1,500&amp;display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body class="page-booking">
+
+  <!-- sticky nav -->
+  <nav class="site-nav">
+    <div class="nav-row">
+      <a class="nav-brand" href="index.html">
+        <img loading="eager" width="206" height="212" class="nav-ginkgo" src="assets/ds/logo-ginkgo.png" alt="">
+        <img loading="eager" width="356" height="135" class="nav-wordmark" src="assets/ds/wordmark.png" alt="umbrage studio">
+      </a>
+      <div class="nav-links">
+        <a href="index.html#pieces">The pieces</a>
+        <a href="index.html#process">The process</a>
+        <a href="faq.html">FAQ</a>
+        <a class="nav-cta" href="request.html">Start the conversation</a>
+      </div>
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-panel">
+      <div class="nav-panel-inner">
+        <a href="index.html#pieces">the pieces</a>
+        <a href="index.html#process">the process</a>
+        <a href="faq.html">faq</a>
+        <a href="request.html">start the conversation</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- header -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <span class="eyebrow">Design consultation</span>
+      <div class="gold-tick"></div>
+      <h1>Book your design consultation</h1>
+      <p>$200, credited in full toward your build. It covers the conversation where we work out measurements, materials, and how the piece needs to behave, the design work that comes out of it, and your spot in my build queue.</p>
+    </div>
+  </header>
+
+  <!-- the calendar -->
+  <section class="section section--pink">
+    <div class="form-inner form-inner--wide">
+      <div class="form-embed form-embed--calendar">
+        <!-- Pointed at the custom domain, not umbrage.neetocal.com, so the
+             booking session stays same-site as umbrage.studio and its cookies
+             survive browser tracking protection. dynamicHeight makes NeetoCal
+             post its height as it changes; js/site.js resizes the frame. -->
+        <iframe
+          id="booking-frame"
+          src="https://meeting.umbrage.studio/design-consultation?dynamicHeight=true"
+          title="Book a design consultation"
+          allow="payment *"></iframe>
+      </div>
+      <p class="form-fallback">Calendar not loading, or trouble paying? <a href="https://meeting.umbrage.studio/design-consultation" target="_blank" rel="noopener">Open the booking page in a new tab</a>.<br>Prefer to keep it off a card entirely? <a href="mailto:umbragestudio@gmail.com?subject=Design%20consultation%20by%20Zelle">Email me</a> and we&rsquo;ll arrange Zelle.</p>
+    </div>
+  </section>
+
+  <!-- not ready yet -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="callout callout--pink">
+        <p><strong>Not ready for this step?</strong><br>Send a commission request first. It tells me what you&rsquo;re imagining, and there&rsquo;s no cost to it.</p>
+        <a class="btn btn--outline" href="request.html">Send a commission request</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-brand">
+        <img loading="lazy" width="356" height="135" src="assets/ds/wordmark.png" alt="umbrage studio">
+        <p>For the body you actually have.</p>
+      </div>
+      <div class="site-footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="https://www.instagram.com/umbragestudio" target="_blank" rel="noopener">Instagram</a>
+        <a href="index.html#pieces">The pieces</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

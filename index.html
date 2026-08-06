@@ -6,6 +6,10 @@
   <title>Umbrage Studio — custom mobility + wellness furniture</title>
   <meta name="description" content="Custom restraint &amp; support furniture, built by hand and measured to one body. Yours.">
   <link rel="icon" type="image/png" href="assets/ds/logo-ginkgo.png">
+  <link rel="preload" href="assets/fonts/Kollektif.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@0,500;1,500&amp;display=swap">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/site.css">
 </head>
@@ -15,13 +19,14 @@
   <nav class="site-nav">
     <div class="nav-row">
       <a class="nav-brand" href="index.html">
-        <img class="nav-ginkgo" src="assets/ds/logo-ginkgo.png" alt="">
-        <img class="nav-wordmark" src="assets/ds/wordmark.png" alt="umbrage studio">
+        <img loading="eager" width="206" height="212" class="nav-ginkgo" src="assets/ds/logo-ginkgo.png" alt="">
+        <img loading="eager" width="356" height="135" class="nav-wordmark" src="assets/ds/wordmark.png" alt="umbrage studio">
       </a>
       <div class="nav-links">
-        <a href="#pieces">Pieces</a>
-        <a href="#process">Process</a>
-        <a class="nav-cta" href="https://meeting.umbrage.studio/design-consultation" target="_blank" rel="noopener">Start the conversation</a>
+        <a href="#pieces">The pieces</a>
+        <a href="#process">The process</a>
+        <a href="faq.html">FAQ</a>
+        <a class="nav-cta" href="request.html">Start the conversation</a>
       </div>
       <button class="nav-burger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -29,9 +34,10 @@
     </div>
     <div class="nav-panel">
       <div class="nav-panel-inner">
-        <a href="#pieces">pieces</a>
-        <a href="#process">process</a>
-        <a href="https://meeting.umbrage.studio/design-consultation" target="_blank" rel="noopener">book a design consultation</a>
+        <a href="#pieces">the pieces</a>
+        <a href="#process">the process</a>
+        <a href="faq.html">faq</a>
+        <a href="request.html">start the conversation</a>
       </div>
     </div>
   </nav>
@@ -47,10 +53,9 @@
           <a class="btn btn--primary" href="#pieces">See the pieces</a>
           <a class="btn btn--outline" href="#process">How commissions work</a>
         </div>
-        <p class="hero-note">Every piece starts with a conversation, a $200 design consultation, credited in full toward your build.</p>
       </div>
       <div class="hero-image">
-        <img src="assets/site/hero-dscf6725.jpeg" alt="Dusty-rose steel piece in a lived-in interior">
+        <img fetchpriority="high" loading="eager" width="1400" height="939" src="assets/site/hero-dscf6725.jpeg" alt="Dusty-rose steel piece in a lived-in interior">
       </div>
     </div>
   </section>
@@ -60,18 +65,18 @@
     <div class="asa-inner">
       <div class="eyebrow eyebrow--muted">As seen at</div>
       <div class="asa-row">
-        <div class="asa-tile asa-tile--lovers"><img src="uploads/qt=q_95.webp" alt="Lover&rsquo;s Lair"></div>
-        <div class="asa-tile asa-tile--kink"><img src="uploads/logo-horizontal.0ki7zzqfxugwg.png" alt="Kink Center"></div>
-        <div class="asa-tile asa-tile--sfb"><img src="uploads/SFB_Full_Dark2.webp" alt="Seattle Fetish Ball"></div>
+        <div class="asa-tile asa-tile--lovers"><img loading="lazy" width="452" height="400" src="uploads/qt=q_95.webp" alt="Lover&rsquo;s Lair"></div>
+        <div class="asa-tile asa-tile--kink"><img loading="lazy" width="1010" height="110" src="uploads/logo-horizontal.0ki7zzqfxugwg.png" alt="Kink Center"></div>
+        <div class="asa-tile asa-tile--sfb"><img loading="lazy" width="300" height="300" src="uploads/SFB_Full_Dark2.png" alt="Seattle Fetish Ball"></div>
       </div>
       <div class="asa-marquee" aria-hidden="true">
         <div class="asa-marquee-track">
-          <img class="logo-lovers" src="uploads/qt=q_95.webp" alt="">
-          <img class="logo-kink" src="uploads/logo-horizontal.0ki7zzqfxugwg.png" alt="">
-          <img class="logo-sfb" src="uploads/SFB_Full_Dark2.webp" alt="">
-          <img class="logo-lovers" src="uploads/qt=q_95.webp" alt="">
-          <img class="logo-kink" src="uploads/logo-horizontal.0ki7zzqfxugwg.png" alt="">
-          <img class="logo-sfb" src="uploads/SFB_Full_Dark2.webp" alt="">
+          <img loading="lazy" width="452" height="400" class="logo-lovers" src="uploads/qt=q_95.webp" alt="">
+          <img loading="lazy" width="1010" height="110" class="logo-kink" src="uploads/logo-horizontal.0ki7zzqfxugwg.png" alt="">
+          <img loading="lazy" width="300" height="300" class="logo-sfb" src="uploads/SFB_Full_Dark2.png" alt="">
+          <img loading="lazy" width="452" height="400" class="logo-lovers" src="uploads/qt=q_95.webp" alt="">
+          <img loading="lazy" width="1010" height="110" class="logo-kink" src="uploads/logo-horizontal.0ki7zzqfxugwg.png" alt="">
+          <img loading="lazy" width="300" height="300" class="logo-sfb" src="uploads/SFB_Full_Dark2.png" alt="">
         </div>
       </div>
     </div>
@@ -97,46 +102,46 @@
       <div class="pieces-grid">
         <a class="piece-card" href="satin-sanctuary.html">
           <div class="piece-card-body">
-            <img src="assets/site/satin-sanctuary.webp" alt="satin sanctuary">
+            <img loading="lazy" width="500" height="700" src="assets/site/satin-sanctuary.webp" alt="satin sanctuary">
             <div class="piece-card-text">
               <div class="piece-name">satin sanctuary</div>
               <div class="piece-price">from $2,800</div>
             </div>
           </div>
         </a>
-        <!-- Placeholder: point at cupids-arrow.html once that page exists -->
-        <a class="piece-card" href="https://meeting.umbrage.studio/design-consultation" target="_blank" rel="noopener">
+        <a class="piece-card piece-card--wip" href="cupids-arrow.html">
           <div class="piece-card-body">
-            <img src="assets/site/cupids-arrow.webp" alt="cupid&rsquo;s arrow">
+            <span class="piece-badge">Under construction</span>
+            <img loading="lazy" width="700" height="839" src="assets/site/cupids-arrow.jpg" alt="cupid&rsquo;s arrow">
             <div class="piece-card-text">
               <div class="piece-name">cupid&rsquo;s arrow</div>
               <div class="piece-price">from $1,900</div>
             </div>
           </div>
         </a>
-        <!-- Placeholder: point at primal-perch.html once that page exists -->
-        <a class="piece-card" href="https://meeting.umbrage.studio/design-consultation" target="_blank" rel="noopener">
+        <a class="piece-card piece-card--wip" href="primal-perch.html">
           <div class="piece-card-body">
-            <img src="assets/site/primal-perch.webp" alt="primal perch">
+            <span class="piece-badge">Under construction</span>
+            <img loading="lazy" width="500" height="700" src="assets/site/primal-perch.webp" alt="primal perch">
             <div class="piece-card-text">
               <div class="piece-name">primal perch</div>
               <div class="piece-price">from $950</div>
             </div>
           </div>
         </a>
-        <!-- Placeholder: point at pleasure-pew.html once that page exists -->
-        <a class="piece-card" href="https://meeting.umbrage.studio/design-consultation" target="_blank" rel="noopener">
+        <a class="piece-card piece-card--wip" href="pleasure-pew.html">
           <div class="piece-card-body">
-            <img src="assets/site/pleasure-pew.webp" alt="pleasure pew">
+            <span class="piece-badge">Under construction</span>
+            <img loading="lazy" width="500" height="700" src="assets/site/pleasure-pew.webp" alt="pleasure pew">
             <div class="piece-card-text">
               <div class="piece-name">pleasure pew</div>
               <div class="piece-price">from $950</div>
             </div>
           </div>
         </a>
-        <a class="piece-card" href="https://meeting.umbrage.studio/design-consultation" target="_blank" rel="noopener">
+        <a class="piece-card" href="request.html">
           <div class="piece-card-body">
-            <img src="assets/site/have-an-idea.webp" alt="have an idea?">
+            <img loading="lazy" width="500" height="700" src="assets/site/have-an-idea.webp" alt="have an idea?">
             <div class="piece-card-text">
               <div class="piece-name">have an idea?</div>
               <div class="piece-price">fully custom, let&rsquo;s talk</div>
@@ -158,31 +163,37 @@
       <div class="steps-grid">
         <div class="step-card">
           <div class="step-num">1</div>
+          <div class="step-title">Ask</div>
+          <p>Send a commission request. It tells me what you&rsquo;re imagining, so I can tell you whether I can build it and roughly what it would cost.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
           <div class="step-title">Reserve</div>
           <p>A $200 design consultation holds your spot in my build queue, credited in full toward your piece.</p>
         </div>
         <div class="step-card">
-          <div class="step-num">2</div>
+          <div class="step-num">3</div>
           <div class="step-title">Converse</div>
           <p>We talk scenes, mobility, materials, and measurements, in a range of positions, for the most comfortable fit.</p>
         </div>
         <div class="step-card">
-          <div class="step-num">3</div>
+          <div class="step-num">4</div>
           <div class="step-title">Build</div>
-          <p>I weld, powder-coat, and upholster your piece by hand, most builds take 5&ndash;9 weeks.</p>
+          <p>I cut, weld, paint, and upholster your piece by hand, most builds take 5&ndash;9 weeks.</p>
         </div>
         <div class="step-card">
-          <div class="step-num">4</div>
+          <div class="step-num">5</div>
           <div class="step-title">Deliver</div>
-          <p>Crated and shipped to you, with the $200 consultation applied against the final invoice.</p>
+          <p>Shipped to you in a plain, nondescript box, with your consultation credited against the final invoice.</p>
         </div>
       </div>
       <div class="consult-cta">
         <div class="consult-cta-copy">
           <div class="consult-cta-title">Book your design consultation, $200</div>
           <p>Credited in full toward your commission. Builds run 5&ndash;9 weeks once we've settled the design.</p>
+          <p>Not there yet? <a style="color: var(--gold-eyebrow);" href="request.html">Send a commission request first</a>, it&rsquo;s free, or <a href="faq.html" style="color: var(--gold-eyebrow);">read the FAQ</a>.</p>
         </div>
-        <a class="btn btn--cream" href="https://meeting.umbrage.studio/design-consultation" target="_blank" rel="noopener">Start the conversation</a>
+        <a class="btn btn--cream" href="booking.html">Book the consultation</a>
       </div>
     </div>
   </section>
@@ -191,10 +202,11 @@
   <footer class="site-footer">
     <div class="site-footer-inner">
       <div class="site-footer-brand">
-        <img src="assets/ds/wordmark.png" alt="umbrage studio">
-        <p>Custom-built, by hand, for the body you actually have.</p>
+        <img loading="lazy" width="356" height="135" src="assets/ds/wordmark.png" alt="umbrage studio">
+        <p>For the body you actually have.</p>
       </div>
       <div class="site-footer-links">
+        <a href="faq.html">FAQ</a>
         <a href="https://www.instagram.com/umbragestudio" target="_blank" rel="noopener">Instagram</a>
         <a href="satin-sanctuary.html">Satin Sanctuary</a>
       </div>

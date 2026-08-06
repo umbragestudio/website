@@ -98,6 +98,11 @@ a:hover { color: var(--brand-primary-hover); }
   z-index: 50;
   background: #123524;
 }
+
+/* Jump links land below the sticky nav, not behind it, so a section's eyebrow
+   ("The pieces", "How it works") is the first thing you see rather than its
+   heading. Keep this at least as tall as the nav row. */
+section[id] { scroll-margin-top: 76px; }
 .nav-row {
   max-width: 1100px;
   margin: 0 auto;
@@ -174,7 +179,9 @@ a:hover { color: var(--brand-primary-hover); }
   .nav-links { display: none; }
   .nav-burger { display: flex; }
   .nav-panel { display: block; }
-  .nav-open .nav-panel { max-height: 240px; }
+  /* Headroom for extra nav links; the panel animates to this ceiling, so keep
+     it comfortably above the real content height. */
+  .nav-open .nav-panel { max-height: 340px; }
   .nav-open .nav-burger span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
   .nav-open .nav-burger span:nth-child(2) { opacity: 0; }
   .nav-open .nav-burger span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
@@ -213,7 +220,6 @@ a:hover { color: var(--brand-primary-hover); }
 .hero-copy h1 .accent { color: var(--brand-accent-hover); }
 
 .hero-lede { margin: 0; font: var(--text-body-l); color: var(--text-body); max-width: 46ch; }
-.hero-note { margin: 0; font: var(--text-body-s); color: var(--text-muted); }
 .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 
 .hero-image {
@@ -257,6 +263,65 @@ a:hover { color: var(--brand-primary-hover); }
 .hero-stat .stat-link:hover { color: var(--brand-primary-hover); text-decoration: underline; }
 .hero-stats .stat-divider { width: 1.5px; background: var(--border-subtle); }
 
+/* ---------- simple page header (FAQ and other text pages) ---------- */
+
+.page-header { background: linear-gradient(180deg, var(--cream-000) 0%, var(--pink-50) 100%); }
+/* Left-aligned like every other page header on the site, and on the same
+   780px column as the FAQ list below, so the page has one left edge. */
+.page-header-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 72px) clamp(16px, 4vw, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.page-header h1 {
+  margin: 0;
+  font: var(--text-display-l);
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  color: var(--text-heading);
+}
+.page-header p { margin: 0; font: var(--text-body-l); color: var(--text-body); max-width: 56ch; }
+
+/* ---------- callout strip (cross-links between pages) ---------- */
+
+.callout {
+  background: var(--surface-raised);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-m);
+  padding: 20px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.callout p { margin: 0; font: var(--text-body-m); color: var(--text-body); }
+.callout--pink { background: var(--pink-50); }
+
+/* ---------- placeholder marker (stub pages) ----------
+   Wrap any copy you still need to write in class="placeholder". It renders in
+   a dashed amber box so it can't ship by accident. Delete the class (and this
+   rule's targets) once the real copy is in. */
+
+.placeholder {
+  border: 2px dashed #c99a3e;
+  background: #fdf6e6;
+  border-radius: var(--radius-s);
+  padding: 12px 14px;
+  color: #7a5b16;
+}
+.placeholder::before {
+  content: 'TO WRITE — ';
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: #b07d1a;
+}
+
 /* ---------- as seen at ---------- */
 
 .asa { background: var(--surface-page); }
@@ -277,20 +342,22 @@ a:hover { color: var(--brand-primary-hover); }
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: clamp(32px, 6vw, 56px);
+  gap: clamp(16px, 3vw, 32px);
   row-gap: 24px;
 }
-.page-satin .asa-row { gap: clamp(16px, 3vw, 32px); }
+.page-home .asa-row { gap: clamp(32px, 6vw, 56px); }
 .asa-tile { display: flex; align-items: center; justify-content: center; }
 .asa-tile img { height: 100%; width: auto; max-width: 220px; object-fit: contain; }
 
-/* Per-logo sizes (the marks have wildly different aspect ratios) */
-.asa-tile--lovers { height: 59px; }
-.asa-tile--kink   { height: 23px; }
-.asa-tile--sfb    { height: 55px; }
-.page-satin .asa-tile--lovers { height: 78px; }
-.page-satin .asa-tile--kink   { height: 32px; }
-.page-satin .asa-tile--sfb    { height: 78px; }
+/* Per-logo sizes (the marks have wildly different aspect ratios).
+   Content pages show the strip at full size; the landing page runs it smaller
+   because it sits directly under the hero. */
+.asa-tile--lovers { height: 78px; }
+.asa-tile--kink   { height: 32px; }
+.asa-tile--sfb    { height: 78px; }
+.page-home .asa-tile--lovers { height: 59px; }
+.page-home .asa-tile--kink   { height: 23px; }
+.page-home .asa-tile--sfb    { height: 55px; }
 
 /* mobile marquee (landing page only) */
 .asa-marquee {
@@ -306,7 +373,7 @@ a:hover { color: var(--brand-primary-hover); }
   width: max-content;
   align-items: center;
   gap: 52px;
-  animation: asa-marquee 18s linear infinite;
+  animation: asa-marquee 13s linear infinite;
 }
 .asa-marquee-track img { width: auto; object-fit: contain; }
 .asa-marquee-track .logo-lovers { height: 59px; }
@@ -372,6 +439,7 @@ a:hover { color: var(--brand-primary-hover); }
 }
 .piece-card { text-decoration: none; display: block; }
 .piece-card-body {
+  position: relative;
   background: var(--surface-raised);
   border: 1.5px solid var(--border-subtle);
   border-radius: var(--radius-l);
@@ -379,11 +447,37 @@ a:hover { color: var(--brand-primary-hover); }
   box-shadow: 0 10px 30px -18px rgba(var(--shadow-color), 0.35);
   transition: transform 0.2s cubic-bezier(0.33, 0, 0.2, 1), box-shadow 0.2s;
 }
+
+/* Pieces whose detail page isn't written yet: photo desaturated and badged,
+   so the grid tells you before you click. Remove the --wip class and the
+   badge span once the page is real. */
+.piece-card--wip .piece-card-body img {
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition: filter 0.2s, opacity 0.2s;
+}
+.piece-card--wip:hover .piece-card-body img { opacity: 0.7; }
+.piece-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(32, 29, 26, 0.82);
+  color: var(--cream-100);
+  font: var(--text-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+}
+
 .piece-card:hover .piece-card-body {
   transform: translateY(-4px);
   box-shadow: 0 18px 40px -18px rgba(var(--shadow-color), 0.4);
 }
-.piece-card img { width: 100%; aspect-ratio: 5 / 6; object-fit: cover; }
+/* height:auto is required — the width/height attributes on these <img> tags are
+   presentational hints, and without it the height attribute wins over
+   aspect-ratio and each card grows to its file's full height. */
+.piece-card img { width: 100%; height: auto; aspect-ratio: 5 / 6; object-fit: cover; }
 .piece-card-text { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 4px; }
 .piece-name {
   font-family: var(--font-display);
@@ -396,21 +490,29 @@ a:hover { color: var(--brand-primary-hover); }
 
 /* ---------- how it works (landing) ---------- */
 
+/* 5 steps: sized so the whole process reads as one row at desktop width,
+   then wraps down gracefully. */
 .steps-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
-  gap: clamp(16px, 2.5vw, 24px);
+  grid-template-columns: repeat(auto-fit, minmax(min(185px, 100%), 1fr));
+  gap: clamp(16px, 2vw, 20px);
 }
+/* Badge and title share the top row; the body text spans the full card below.
+   Grid rather than nested divs, so the HTML stays three flat children. */
 .step-card {
   background: var(--surface-raised);
   border: 1.5px solid var(--border-subtle);
   border-radius: var(--radius-m);
   padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 12px;
 }
+.step-card p { grid-column: 1 / -1; }
 .step-num {
+  flex-shrink: 0;
   width: 36px;
   height: 36px;
   border-radius: var(--radius-pill);
@@ -550,6 +652,68 @@ a:hover { color: var(--brand-primary-hover); }
 .faq-header h2 { margin: 0; font: var(--text-display-m); color: var(--text-heading); }
 
 .faq-list { display: flex; flex-direction: column; gap: 12px; }
+.faq-groups { display: flex; flex-direction: column; gap: clamp(32px, 5vw, 52px); }
+.faq-group { display: flex; flex-direction: column; gap: 14px; }
+
+/* Group heading carries the same gold tick the rest of the site uses under
+   its section eyebrows, so the FAQ reads as part of the same design. */
+.faq-group-title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font: var(--text-display-s);
+  color: var(--text-heading);
+}
+.faq-group-title::before {
+  content: '';
+  width: 32px;
+  height: 3px;
+  background: var(--gold-400);
+  border-radius: 2px;
+}
+
+/* First FAQ block sits directly under the page header, so it needs less lead-in
+   than a mid-page section. */
+.faq-inner--tight { padding-top: clamp(28px, 4vw, 44px); }
+
+/* ---------- embedded form (request page) ---------- */
+
+.form-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 44px) clamp(16px, 4vw, 32px) clamp(48px, 8vw, 88px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form-embed {
+  background: var(--surface-raised);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-l);
+  padding: clamp(16px, 3vw, 28px);
+  box-shadow: 0 10px 30px -18px rgba(var(--shadow-color), 0.35);
+}
+.form-embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+
+/* Booking calendar. js/site.js sets the real height from NeetoCal's
+   height-change messages; this is just the pre-load starting size. */
+.form-inner--wide { max-width: 900px; }
+.form-embed--calendar iframe {
+  width: 100%;
+  height: 700px;
+  border: 0;
+  transition: height 160ms var(--ease-soft);
+}
+.form-fallback {
+  margin: 0;
+  text-align: center;
+  font: var(--text-body-s);
+  color: var(--text-muted);
+}
 .faq-item {
   scroll-margin-top: 90px;
   background: var(--surface-raised);
