@@ -456,6 +456,8 @@ section[id] { scroll-margin-top: 76px; }
   opacity: 0.55;
   transition: filter 0.2s, opacity 0.2s;
 }
+/* Keeps the lift-on-hover of a normal card. The card is a plain div with no
+   href, so it looks alive but goes nowhere until its page is written. */
 .piece-card--wip:hover .piece-card-body img { opacity: 0.7; }
 .piece-badge {
   position: absolute;
